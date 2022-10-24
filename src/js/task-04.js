@@ -21,3 +21,4 @@ function add1() {
 
 const counterValueEl = document.querySelector("#value");
 console.log(counterValueEl.textContent);
+// тест
