@@ -31,10 +31,10 @@ img {
 ul {
   margin: 0;
   padding-left: 0;
-  list-style: none;
 }
 
 .gallery {
   display: flex;
   justify-content: space-between;
+  list-style: none;
 }
