@@ -8,20 +8,44 @@ const refs = {
   buttonDstr: document.querySelector(`[data-destroy]`),
 };
 
-console.log(refs.input);
-console.log(refs.buttonCr);
-console.log(refs.buttonDstr);
+// console.log(refs.input);
+// // console.log(refs.buttonCr);
+// // console.log(refs.buttonDstr);
 
 refs.buttonCr.addEventListener(`click`, onAddDivListClick);
 
+// let amount = refs.input.currentTarget;
+// console.log(amount);
+
 function onAddDivListClick() {
+  const amount = refs.input.addEventListener(`input`, (event) => {
+    // event.preventDefault();
+    event.currentTarget.value;
+  });
+  console.log(amount);
   const divEl = document.createElement(`div`);
-  console.log(`создаю div`);
+  for (let index = 1; index < amount; index++) {
+    console.log(divEl);
+  }
   const divList = document.querySelector(`#boxes`);
   divList.append(divEl);
   console.log(divList);
 }
-console.log(onAddDivListClick());
+// console.log(onAddDivListClick());
+
+// _____________________________________________
+
+// refs.input.addEventListener(`input`, (event) => {
+//   event.preventDefault();
+//   console.dir(event.currentTarget.value);
+//   const divsEl = [...event.currentTarget.value].map((div) => {
+//     const divEl = document.createElement(`div`);
+//     console.log(`создаю div`);
+//     return divEl;
+//   });
+//   return divsEl;
+// });
+// _______________________________________________
 
 // function addDivEl() {
 //   refs.input.addEventListener(`input`, (event) => {
@@ -45,42 +69,41 @@ console.log(onAddDivListClick());
 //   });
 // }
 // ______________________________
-refs.input.addEventListener(`input`, (event) => {
-  event.preventDefault();
-  console.dir(event.currentTarget.value);
-  const amount = event.currentTarget.value;
-  console.log(amount);
+// refs.input.addEventListener(`input`, (event) => {
+//   event.preventDefault();
+//   console.dir(event.currentTarget.value);
+//   const amount = event.currentTarget.value;
 
-  function createBoxes(amount) {
-    const min = 1;
-    const max = amount;
-    function createArrayOfDivs(min, max) {
-      const divs = [];
-      let div;
-      divs[0] = min;
-      for (let i = min; i <= max - 1; i += 1) {
-        div = divs.push((min += 1));
-      }
-      return divs;
-    }
-    console.log(createArrayOfDivs(min, max));
+//   function createBoxes(amount) {
+//     const min = 1;
+//     const max = amount;
+//     function createArrayOfDivs(min, max) {
+//       const divs = [];
+//       let div;
+//       divs[0] = min;
+//       for (let i = min; i <= max - 1; i += 1) {
+//         div = divs.push((min += 1));
+//       }
+//       return divs;
+//     }
+//     console.log(createArrayOfDivs(min, max));
 
-    refs.buttonCr.addEventListener(`click`, onAddDivListClick);
+//     refs.buttonCr.addEventListener(`click`, onAddDivListClick);
 
-    function onAddDivListClick() {
-      const divsEl = createArrayOfDivs(min, max).map((div) => {
-        const divEl = document.createElement(`div`);
-        console.log(`создаю div`);
-        return divEl;
-      });
-      console.log(divsEl);
+//     function onAddDivListClick() {
+//       const divsEl = createArrayOfDivs(min, max).map((div) => {
+//         const divEl = document.createElement(`div`);
+//         console.log(`создаю div`);
+//         return divEl;
+//       });
+//       console.log(divsEl);
 
-      const divList = document.querySelector(`#boxes`);
+//       const divList = document.querySelector(`#boxes`);
 
-      divList.append(...divsEl);
-    }
-  }
-});
+//       divList.append(...divsEl);
+//     }
+//   }
+// });
 // _______________________________
 // function createBoxes(amount) {
 //   const min = 1;
