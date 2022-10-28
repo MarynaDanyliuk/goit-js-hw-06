@@ -8,30 +8,59 @@ const refs = {
   buttonDstr: document.querySelector(`[data-destroy]`),
 };
 
-// console.log(refs.input);
-// // console.log(refs.buttonCr);
-// // console.log(refs.buttonDstr);
+refs.buttonCr.addEventListener(`click`, createBoxes);
+refs.buttonDstr.addEventListener(`click`, destroyBoxes);
 
-refs.buttonCr.addEventListener(`click`, onAddDivListClick);
+let amount;
+refs.input.addEventListener(`input`, (event) => {
+  event.preventDefault();
+  amount = event.currentTarget.value;
+});
 
-// let amount = refs.input.currentTarget;
-// console.log(amount);
+function createBoxes() {
+  const divsEl = [];
 
-function onAddDivListClick() {
-  const amount = refs.input.addEventListener(`input`, (event) => {
-    // event.preventDefault();
-    event.currentTarget.value;
-  });
-  console.log(amount);
-  const divEl = document.createElement(`div`);
-  for (let index = 1; index < amount; index++) {
-    console.log(divEl);
+  for (let i = 0; i < amount; i += 1) {
+    const divEl = document.createElement(`div`);
+    divEl.style.backgroundColor = getRandomHexColor();
+    divEl.style.width = "30px";
+    divEl.style.height = "30px";
+    divsEl.push(divEl);
   }
+
   const divList = document.querySelector(`#boxes`);
-  divList.append(divEl);
+
+  divList.append(...divsEl);
+
+  console.log(divsEl);
   console.log(divList);
 }
-// console.log(onAddDivListClick());
+
+console.log(createBoxes());
+
+function destroyBoxes(event) {
+  event.currentTarget.value = document
+    .querySelector(`div#boxes`)
+    .children.remove();
+}
+
+// ________________________________________________
+
+// function onAddDivListClick() {
+//   const divsEl = [];
+
+//   for (let index = 0; index < amount; index++) {
+//     let divEl = document.createElement(`div`);
+//     divsEl.push(divEl);
+//   }
+
+//   const divList = document.querySelector(`#boxes`);
+
+//   divList.append(...divsEl);
+
+//   console.log(divsEl);
+//   console.log(divList);
+// }
 
 // _____________________________________________
 
