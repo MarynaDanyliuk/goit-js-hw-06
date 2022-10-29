@@ -23,8 +23,8 @@ function createBoxes() {
   for (let i = 0; i < amount; i += 1) {
     const divEl = document.createElement(`div`);
     divEl.style.backgroundColor = getRandomHexColor();
-    divEl.style.width = "30px";
-    divEl.style.height = "30px";
+    divEl.style.width = `${30 + 10 * i}px`;
+    divEl.style.height = `${30 + 10 * i}px`;
     divsEl.push(divEl);
   }
 
@@ -36,13 +36,39 @@ function createBoxes() {
   console.log(divList);
 }
 
-console.log(createBoxes());
-
 function destroyBoxes(event) {
-  event.currentTarget.value = document
-    .querySelector(`div#boxes`)
-    .children.remove();
+  event.preventDefault();
+  const divList = document.querySelector(`#boxes`);
+  divList.innerHTML = ` `;
+  console.log(divList);
 }
+// __________________________________________
+// function destroyBoxes1(event) {
+//   event.preventDefault();
+//   // const divList = document.querySelector(`#boxes`);
+//   // console.log(divList);
+//   // divList.innerHTML = ` `;
+//   refs.input.remove();
+//   refs.input.reset();
+//   // const divsEl = document.querySelector(`#boxes`).children;
+//   // console.log(divsEl);
+//   // const array = [...divsEl];
+//   // console.log(array);
+//   // return array.splise(0, array.length);
+//   // divList.removeChild(divsEl);
+
+// for (let i = 0; i < amount; i += 1) {
+//   event.currentTarget.value[i] = null;
+// }
+
+// document.querySelector(`#boxes`).remove(event.currentTarget.value);
+// refs.input.reset();
+// const divsEl = document.querySelector(`#boxes`).children;
+// console.log(divsEl);
+// const array = [...divsEl];
+// console.log(array);
+// return array.splise(0, array.length);
+// }
 
 // ________________________________________________
 

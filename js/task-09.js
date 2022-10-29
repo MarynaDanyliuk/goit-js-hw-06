@@ -8,7 +8,7 @@ const refs = {
   button: document.querySelector(`.change-color`),
   body: document.querySelector(`body`),
 };
-console.log(refs.nameColor);
+// console.log(refs.nameColor);
 console.log(refs.body);
 
 refs.button.addEventListener(`click`, onButtonClick);
