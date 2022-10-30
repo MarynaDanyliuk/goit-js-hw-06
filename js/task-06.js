@@ -18,7 +18,7 @@ function onInputBlur() {
   console.log(`инпут потерял фокус`);
 }
 function onInputChange(event) {
-  if (event.currentTarget.value.length <= 6) {
+  if (event.currentTarget.value.length === 6) {
     refs.input.setAttribute("class", "valid");
     return console.log(event.currentTarget.value);
   } else refs.input.setAttribute("class", "invalid");

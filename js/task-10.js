@@ -10,6 +10,7 @@ const refs = {
 
 refs.buttonCr.addEventListener(`click`, createBoxes);
 refs.buttonDstr.addEventListener(`click`, destroyBoxes);
+refs.input.addEventListener(`blur`, cleanInput);
 
 let amount;
 refs.input.addEventListener(`input`, (event) => {
@@ -42,8 +43,17 @@ function destroyBoxes(event) {
   divList.innerHTML = ` `;
   console.log(divList);
 }
+
+function cleanInput(event) {
+  if (event.currenTarget) {
+    refs.input.textContent = ``;
+  }
+}
+
 // __________________________________________
 // function destroyBoxes1(event) {
+//  event.currentTarget.value;
+//  console.log(event.currentTarget.value);
 //   event.preventDefault();
 //   // const divList = document.querySelector(`#boxes`);
 //   // console.log(divList);
