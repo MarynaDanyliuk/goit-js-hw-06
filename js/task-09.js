@@ -4,24 +4,20 @@ function getRandomHexColor() {
 
 const refs = {
   background: document.querySelector(`.widget`),
-  nameColor: document.querySelector(`.color`),
+  color: document.querySelector(`.color`),
   button: document.querySelector(`.change-color`),
   body: document.querySelector(`body`),
 };
-// console.log(refs.nameColor);
-console.log(refs.body);
+console.log(refs.color);
 
 refs.button.addEventListener(`click`, onButtonClick);
 
-function onButtonClick() {
+function onButtonClick(event) {
+  event.preventDefault();
   refs.body.style.backgroundColor = getRandomHexColor();
-  refs.nameColor.textContent = `#${Math.floor(
-    Math.random() * 16777215
-  ).toString(16)}`;
-  console.log(`клик на кнопку`);
+  refs.color.textContent = `#${Math.floor(Math.random() * 16777215).toString(
+    16
+  )}`;
 }
-
-// refs.nameColor.insertAdjacentHTML(
-//   "afterbegin",
-//   `${refs.nameColor.textContent}`
-// );
+refs.color.textContent = getRandomHexColor();
+console.log(refs.color);

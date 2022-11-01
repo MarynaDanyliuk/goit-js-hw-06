@@ -3,6 +3,7 @@ function getRandomHexColor() {
 }
 
 const refs = {
+  form: document.querySelector(`#controls`),
   input: document.querySelector(`input`),
   buttonCr: document.querySelector(`[data-create]`),
   buttonDstr: document.querySelector(`[data-destroy]`),
@@ -10,7 +11,7 @@ const refs = {
 
 refs.buttonCr.addEventListener(`click`, createBoxes);
 refs.buttonDstr.addEventListener(`click`, destroyBoxes);
-refs.input.addEventListener(`blur`, cleanInput);
+// refs.input.addEventListener(`blur`, cleanInput);
 
 let amount;
 refs.input.addEventListener(`input`, (event) => {
@@ -41,14 +42,15 @@ function destroyBoxes(event) {
   event.preventDefault();
   const divList = document.querySelector(`#boxes`);
   divList.innerHTML = ` `;
+  refs.form.reset();
   console.log(divList);
 }
 
-function cleanInput(event) {
-  if (event.currenTarget) {
-    refs.input.textContent = ``;
-  }
-}
+refs.form.addEventListener(`submit`, (event) => {
+  event.preventDefault();
+  refs.form.reset();
+  console.log(event.target.elements.textContent.value);
+});
 
 // __________________________________________
 // function destroyBoxes1(event) {
