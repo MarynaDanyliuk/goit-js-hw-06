@@ -14,10 +14,9 @@ refs.button.addEventListener(`click`, onButtonClick);
 
 function onButtonClick(event) {
   event.preventDefault();
-  refs.body.style.backgroundColor = getRandomHexColor();
-  refs.color.textContent = `#${Math.floor(Math.random() * 16777215).toString(
-    16
-  )}`;
+  const color = getRandomHexColor();
+  refs.body.style.backgroundColor = color;
+  refs.color.textContent = color;
 }
-refs.color.textContent = getRandomHexColor();
+
 console.log(refs.color);
